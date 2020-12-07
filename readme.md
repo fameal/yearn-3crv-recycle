@@ -1,6 +1,6 @@
-# Yearn Recycle
+# Yearn Recycle 3CRV
 
-A contract that recycles all your [DAI, USDC, USDT, TUSD, yCRV] into yCRV and further into yUSD vault.
+A contract that recycles all your [DAI, USDC, USDT, 3CRV] into 3CRV and further into y3CRV vault.
 
 ## Usage
 
@@ -17,16 +17,15 @@ $ brownie run recycle --network mainnet
 
 ### Using Etherscan
 
-1. Call `approve(0x5F07257145fDd889c6E318F99828E68A449A5c7A, 115792089237316195423570985008687907853269984665640564039457584007913129639935)` for all non-zero balances:
+1. Call `approve([TODO add deployment address], 115792089237316195423570985008687907853269984665640564039457584007913129639935)` for all non-zero balances:
 - [DAI](https://etherscan.io/address/0x6B175474E89094C44Da98b954EedeAC495271d0F#writeContract)
 - [USDC](https://etherscan.io/address/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48#writeProxyContract)
 - [USDT](https://etherscan.io/address/0xdAC17F958D2ee523a2206206994597C13D831ec7#writeContract)
-- [TUSD](https://etherscan.io/address/0x0000000000085d4780B73119b644AE5ecd22b376#writeProxyContract)
-- [yCRV](https://etherscan.io/address/0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8#writeContract)
+- [3CRV](https://etherscan.io/address/0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490#writeContract)
 
-2. Call `recycle()` [here](https://etherscan.io/address/0x5F07257145fDd889c6E318F99828E68A449A5c7A#writeContract).
+2. Call `recycle()` [here](https://etherscan.io/address/[TODO add deployment address]#writeContract).
 
-## Deployments
+## Deployments (yUSD version)
 
 ### v0.2.0
 `0x5F07257145fDd889c6E318F99828E68A449A5c7A`
@@ -61,8 +60,8 @@ For tokens with non-zero balances and `balance > allowance`, call `token.approve
 
 At this point you can call `recycle.recycle()`
 
-You can get the exact amounts in and out from the transaction receipt event called `Recycled(user, sent_dai, sent_usdc, sent_usdt, sent_tusd, sent_ycrv, received_yusd)`
+You can get the exact amounts in and out from the transaction receipt event called `Recycled(user, sent_dai, sent_usdc, sent_usdt, sent_3crv, received_y3crv)`
 
-You can also allow depositing partial amounts (sliders?) or skipping some of the coins (checkboxes?). For this you need to calculate the exact amounts and pass them into `recycle.recycle_exact(dai, usdc, usdt, tusd, ycrv)`
+You can also allow depositing partial amounts (sliders?) or skipping some of the coins (checkboxes?). For this you need to calculate the exact amounts and pass them into `recycle.recycle_exact(dai, usdc, usdt, ycrv)`
 
 Note that USDT is not ERC20-compliant, it doesn't return bool for `approve` and also requires first resetting the `allowance` to zero before changing it to another value.
