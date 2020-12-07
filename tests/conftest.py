@@ -23,9 +23,7 @@ def coins(interface):
         interface.ERC20("0x6B175474E89094C44Da98b954EedeAC495271d0F"),
         interface.ERC20("0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"),
         interface.USDT("0xdAC17F958D2ee523a2206206994597C13D831ec7"),
-        interface.ERC20(
-            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-        ),  # 3crv pair not available on uniswap
+        interface.ERC20("0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"),
     ]
 
 
